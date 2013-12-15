@@ -106,6 +106,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   chef.chef_server_url = "https://api.opscode.com/organizations/ORGNAME"
   #   chef.validation_key_path = "ORGNAME-validator.pem"
   # end
+  config.vm.provision :serverspec do |spec|
+    spec.pattern = '*_spec.rb'
+  end
+
   #
   # If you're using the Opscode platform, your validator client is
   # ORGNAME-validator, replacing ORGNAME with your organization name.
